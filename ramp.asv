@@ -1,0 +1,33 @@
+%***********************************************
+% Lab 1: Continuous-time Systems
+% Author: Duru Yesilyurt
+% Date: 9/30/2026
+% Purpose: Generates a ramp signal with slope m and shifted in time by ad
+% Inputs and Outputs:
+%***********************************************
+
+clear all;
+clf
+Ts = 0.01; 
+t = -5:Ts:5; 
+
+% unit-step function with support [-5,5], delayed by 3
+y = ustep(t,-3);
+plot(t,y);
+axis([-5 5 -1 5]);
+title('Unit step response');
+xlabel('time (seconds)');
+ylabel('y(t)');
+grid
+
+
+function y = ramp(t,3,0)
+
+N= length(t); % counts how many points it should check
+y = zeros(1,N); 
+    for i = 1:N
+        if t(i)>= -ad % checks the points, if on, calculate the ramp
+        y(i) = 3*(t(i) + 0);
+        end
+    end
+end
